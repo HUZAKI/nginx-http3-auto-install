@@ -47,4 +47,4 @@ bash install.sh
 
 ## LICENSE
 
-GPL v3.0
+AGPL v3
