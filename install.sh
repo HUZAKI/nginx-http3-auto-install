@@ -89,3 +89,8 @@ echo $PATH
 echo 'export PATH=/usr/sbin/:$PATH' >> ~/.profile
 
 source  ~/.profile
+
+mkdir -p /etc/nginx/sites-enabled/
+
+sudo mv ./conf/nginx.conf /etc/nginx/
+sudo cp -f ./conf/http3.conf.example /etc/nginx/sites-enabled/

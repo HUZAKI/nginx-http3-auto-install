@@ -1,0 +1,42 @@
+server {
+
+    listen 443 quic reuseport;
+
+
+    listen 443 ssl http2;
+
+    server_name domainname;
+
+    ssl_certificate /etc/letsencrypt/live/domainname/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/domainname/privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/domainname/chain.pem;
+
+    # logging
+    access_log              /var/log/nginx/access.log quic;
+    error_log               /var/log/nginx/error.log warn;
+
+    # Enable all TLS versions (TLSv1.3 is required for QUIC).
+    ssl_protocols TLSv1.3;
+
+    ssl_early_data on;
+
+
+    if ($host != "domainname") {
+        return 404;
+    }
+
+    # Add Alt-Svc header to negotiate HTTP/3.
+    add_header alt-svc 'h3=":443"; ma=86400';
+
+    location / {
+        root html;
+        index index.html index.htm;
+    }
+
+    location /host {
+        return 200 "http3 on $hostname";
+        add_header Content-Type text/plain;
+        # Add Alt-Svc header to negotiate HTTP/3.
+        add_header alt-svc 'h3=":443"; ma=86400';
+    }
+}
