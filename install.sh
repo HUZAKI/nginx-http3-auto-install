@@ -94,3 +94,4 @@ mkdir -p /etc/nginx/sites-enabled/
 
 sudo mv ./conf/nginx.conf /etc/nginx/
 sudo cp -f ./conf/http3.conf.example /etc/nginx/sites-enabled/
+echo done
