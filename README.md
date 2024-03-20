@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm HUZAKI</h1>
-<h3 align="center">Цей скрипт призначенний для автоматичної компіляції nginx с HTTP/3+QUIC</h3>
+<h3 align="center"Цей скрипт призначений для автоматичної компіляції nginx с HTTP/3+QUIC</h3>
 
 - 📫 How to reach me **https://t.me/huzaki_team**
 
