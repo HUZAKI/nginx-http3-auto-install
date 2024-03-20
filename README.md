@@ -40,7 +40,7 @@
 
 ```sh
 git clone https://github.com/HUZAKI/nginx-http3-auto-install.git
-cd nginx-http3-auto
+cd nginx-http3-auto-install
 bash install.sh
 ```
 
